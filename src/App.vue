@@ -1,7 +1,7 @@
 <template>
   <Vue2048 ref="vue2048" @no-change="onNoChange" @point="onAddPoint" />
   <p>Score: {{ totalPoint }}, Best Score: {{ bestPoint }}</p>
-  <h1>Vue Slide Puzzle</h1>
+  <h1>Vue 2048</h1>
 
   <!-- Control -->
   <div class="panel">
