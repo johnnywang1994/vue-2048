@@ -75,8 +75,6 @@ function onAddCard(cardNumber, list) {
   target.value = 2;
   indexList.splice(index, 1);
 
-  cardChanged.value = true;
-
   return onAddCard(--cardNumber, indexList);
 }
 
@@ -151,11 +149,12 @@ watch(direction, (newVal) => {
   const loopFn = getLoopMap[newVal];
   if (loopFn) {
     loopFn(newVal);
-    onAddCard(1);
-    if (!cardChanged.value) {
+    if (cardChanged.value) {
+      onAddCard(1);
+      cardChanged.value = false;
+    } else {
       emit('no-change');
     }
-    cardChanged.value = false;
   }
 })
 
